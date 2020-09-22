@@ -18,12 +18,9 @@ let file = ('./logFile.txt')
 let text ;
 
 
-
 app.get("/", (req,res) => {
     res.send("welcome to localhost")
 });
-
-
 
 app.get("/secret/", function (req, res) {
     
@@ -48,82 +45,6 @@ app.get("/secret/", function (req, res) {
     }
 });
 
-
-
 app.listen(3000, () => {
     console.log("lyssnar 3000 ")
 });
-/* let server= http.createServer((req,res) =>{
-   // res.statusCode = 403; res.writeHead(403)
-    fs.readFile(file, function(err,data){
-        if(err) return console.log(err)
-        else{
-            text = data.toString();
-                console.log(text);
-        }
-    })
-    // Här kollar vi url och auth
-
-    //Utvinna data ur URL
-    // Method 1 - url (deprecated)
-    let urlData = url.parse(req.url, true);
-    console.log("metod 1: " + urlData.query);
-
-    let credentials = url.parse(req.url,true)
-
-    // Hämta värden för loggfilen
-    let urlFacts = req.headers.host + req.url
-    let now = new Date()
-    let logString = urlFacts + ": " + now + "/n" // /n är radmatning
-
-    fs.writeFile('./logFile.txt', logString,{
-        //om vi sätter flagan till r: read => läsa från filen
-        
-        flag: 'a' // append , w: write , r: read
-    }, (err) => {
-        if(err) throw err
-        console.log("Loggfilen är uppdaterad")
-    })
-    res.write('<html><head><meta charset="utf-8">')
-    res.write('<h2>Welcome <p> ${text}')
-    /*if (user.userID == credentials.query.userID && user.password == credentials.query.password) {
-        res.write(`<h1>Userinfo</h1><p> ${user.name} <p>${user.credits}`)
-    } else {
-        res.writeHead(403,'Fel behörighet')
-        res.write("Not authorized")
-    }*/
-    /*function goSecretPage(req,res){
-    fs.readFile('./secretPage.html' , (err, data) => {
-        res.writeHead(200, { 'Content-type' : 'text/html'});
-        if(err){
-            res.write(err);
-            res.write('secret page not found');
-        }else{
-            res.write(data);
-        }
-    }); 
-}
-*/
-
-  /*  let params = url.parse(req.url, true)
-
-    // vår information finns i objektet params.query
-    if (params.query.userID == user.userID && params.query.password == user.password) {
-        res.write(`<h1>Userinfo</h1><p> ${user.name} <p>${user.credits}`)
-    } else {
-        res.writeHead(403)
-        res.write("Not authorized")
-    }
-    
-
-    res.end()
-})
-app.get("/secret/", function(req,res) {
-   
-    res.send('welcome please write the secret word in url to go to secret page');
-    
-});
-
-server.listen(3000, () => {
-    console.log("Lyssnar på 3000")
-}); */
