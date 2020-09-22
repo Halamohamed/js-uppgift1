@@ -33,7 +33,7 @@ app.get("/secret/", function (req, res) {
     //console.log('req.url.key = ' + req.url.key);
     //goSecretPage();
     if(mykey == "ALBATROSS"){
-        fs.readFile('./secretPage.html' ,null,  (err, data) => {
+        fs.readFile('secretPage.html' ,  (err, data) => {
             if(err){
                 //res.setHeader(403);
                 res.write('secret page not found');
